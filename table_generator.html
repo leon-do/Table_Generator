@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<style>
+		table, tr, td{
+			border: 1px black solid;
+			border-collapse: collapse;
+		}
+		table input{
+			text-align: center;
+			border:none;
+		}
+	</style>
+	</head>
+
+	<body>
+
+		<p> Convert table to html code. </p>
+		<p> Make sure you indent the code </p>
+
+		<table>
+			<tr>
+				<td> <input type=text placeholder="A1" id=a1> </td>
+				<td> <input type=text placeholder="B1" id=b1> </td>
+				<td> <input type=text placeholder="C1" id=c1> </td>
+			</tr>
+
+			<tr>
+				<td> <input type=text placeholder="A2" id=a2> </td>
+				<td> <input type=text placeholder="B2" id=b2> </td>
+				<td> <input type=text placeholder="C2" id=c2> </td>
+			</tr>
+
+			<tr>
+				<td> <input type=text placeholder="A3" id=a3> </td>
+				<td> <input type=text placeholder="B3" id=b3> </td>
+				<td> <input type=text placeholder="C3" id=c3> </td>
+			</tr>
+		</table>
+
+		<button id=btn onclick=generateTable()> the generate button </button>
+		<p id = row0></p>
+		<p id = row1></p>
+		<p id = row2></p>
+		<p id = row3></p>
+		<p id = row4></p>
+	</body>
+</html>
+
+
+<script>
+	function generateTable(){
+		// make variables for each cell
+		var A1 = document.getElementById("a1").value;
+		var B1 = document.getElementById("b1").value;
+		var C1 = document.getElementById("c1").value;
+		var A2 = document.getElementById("a2").value;
+		var B2 = document.getElementById("b2").value;
+		var C2 = document.getElementById("c2").value;
+		var A3 = document.getElementById("a3").value;
+		var B3 = document.getElementById("b3").value;
+		var C3 = document.getElementById("c3").value;
+			// alert(A1); //testing testing
+
+		//simplify tags
+		var trStart = "&lttr&gt";
+		var trEnd =  "&lt/tr&gt";
+		var tdStart = "&lttd&gt ";
+		var tdEnd = " &lt/td&gt";
+		var br = "<br>";
+
+		//make to html code
+		document.getElementById("row0").innerHTML = "&lttable&gt"
+    	document.getElementById("row1").innerHTML = 
+    		trStart + 
+    		br + tdStart + A1 + tdEnd + 
+    		br + 
+    		tdStart + B1 + tdEnd + 
+    		br + 
+    		tdStart + C1 + tdEnd + 
+    		br + 
+    		trEnd;
+
+    	document.getElementById("row2").innerHTML = 
+    		trStart + 
+    		br + 
+    		tdStart + A2 + tdEnd + 
+    		br + 
+    		tdStart + B2 + tdEnd + 
+    		br + 
+    		tdStart + C2 + tdEnd + 
+    		br + 
+    		trEnd;
+
+    	document.getElementById("row3").innerHTML = 
+    		trStart + 
+    		br + 
+    		tdStart + A3 + tdEnd + 
+    		br + 
+    		tdStart + B3 + tdEnd + 
+    		br + 
+    		tdStart + C3 + tdEnd + 
+    		br + 
+    		trEnd;
+
+		document.getElementById("row4").innerHTML = "&lt/table&gt"
+
+	}
+</script>
+
+
+<!-- Notes:
+#1 innerHTML should be:
+	<tr>
+	<br>
+		<td> A1 </td>
+	<br>
+		<td> B1 </td>
+	<br>
+		<td> C1 </td>
+	<br>
+	</tr>
+
+#2 add quotes and change < to &lt
+	"&lt"  + "tr" + "&gt" +
+	"<br>" +
+	"&lt" + "td" + "&gt" + A1 + "&lt" + "/td" + "&gt" +
+	"<br>" +
+	"&lt" + "td" + "&gt" + B1 + "&lt" + "/td" + "&gt" +
+	"<br>" +
+	"&lt" + "td" + "&gt" + C1 + "&lt" + "/td" + "&gt" +
+	"<br>" +
+	"&lt"  + "/tr" + "&gt"
+
+
+simplify #2
+	var trStart = "&lttr&gt";
+	var trEnd =  "&lt/tr&gt"";
+	var br = "<br>"
+	etc.
+
+#4 simplified code
+	trStart
+	br
+	tdStart + A1 + tdEnd
+	br
+	tdStart + B1 + tdEnd
+	br
+	tdStart + C1 + tdEnd
+	trEnd
+
+
+
+
+
+
+
+
+
+
+
+
